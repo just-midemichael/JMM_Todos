@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="This is to-do-list created by Olumide Michael Ojo"/>
+    <meta name="author" content="Olumide Michael Ojo"/>
+    <meta name="keywords" content="To-do-list, Olumide Michael Ojo, just_midemichael, just-midemichael"/>
+    <meta name="revision" content="28/08/2022"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <title>JMM Project (To-Do-List)</title>
+    <link rel="icon" type="icon/png" href="contact.png"/>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        * a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        * li {
+            list-style: none;
+            color: inherit;
+        }
+
+        body {
+            width: 100%;
+            box-sizing: border-box;
+            background-image: url(bg-3.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: black;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            background-color: navy;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 0 40px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        @media (max-width: 500px) {
+            header {
+                font-size: 1.1em;
+            }
+        }
+
+        header > div:hover {
+            color: gold;
+        }
+
+        .section-1 {
+            /* border: 4px solid gold; */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .tdl-cont {
+            height: 90vh;
+            max-width: 1300px;
+            width: 90%;
+            /* border: 2px solid white; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .tdl-menu {
+            height: 100%;
+            width: 40%;
+            max-width: 350px;
+            /* border: 1px dotted gray; */
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: rgba(10, 10, 10, 0.8);
+            color: white;
+        }
+
+        .p-cont {
+            width: 100%;
+            height: 25%;
+            max-height: 300px;
+            /* border-bottom: 1px dotted gray; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .pp-cont {
+            min-width: 120px;
+            min-height: 120px;
+            border: 1px solid gray;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-image: url(contact.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 100%;
+            background-color: black;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .pd-cont {
+            height: 100%;
+            width: 100%;
+            /* border: 1px solid teal; */
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .email {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            color: inherit;
+            font-size: 1.0em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 5px;
+            /* border: 1px solid gold; */
+        }
+
+        .so-btn {
+            background-color: royalblue;
+            outline: none;
+            border: none;
+            color: white;
+            height: 30px;
+            width: 90px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .so-btn:hover {
+            background-color: rgb(53, 94, 218);
+        }
+
+        .menu-cont {
+            width: 100%;
+            height: 100%;
+            /* border: 1px solid gold; */
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: transparent;
+        }
+
+        .menu-cont .menu-bg {
+            color: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+
+        .theme-cont1 {
+            /* border: 2px solid red; */
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 0 30px;
+        }
+
+        .theme-bg1 {
+            width: 40px;
+            height: 10px;
+            background-color: black;
+            border-radius: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .theme-ball1 {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .tdl-v-cont {
+            /* border: 2px solid gold; */
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(bg-6.jpg);
+            background-position: center;
+            background-size: cover;
+            padding-bottom: 20px;
+        }
+
+        .tdl-v-cont-2 {
+            width: 100%;
+            max-height: 70px;
+            box-sizing: border-box;
+            /* border: 2px solid gold; */
+            box-sizing: border-box;
+            overflow: hidden;
+            height: 11.5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* background-color: rgba(20, 20, 20, 0.6); */
+        } 
+
+        .tdl-v-header {
+            min-height: 50px;
+            height: 100%;
+            width: 100%;
+            /* border: 2px solid teal; */
+            font-size: 1.8em;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            cursor: pointer;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .p-menu-cont {
+            /* border: 1px solid red; */
+            max-width: 125px;
+            width: 25%;
+            height: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: none;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1px;
+        }
+
+        .p-menu {
+            width: 100%;
+            height: 100%;
+            border: 1px solid royalblue;
+            border-radius: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-image: url(contact.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+        }
+
+        .title-cont {
+            /* border: 2px solid gold; */
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .theme-cont {
+            /* border: 1px solid red; */
+            height: 100%;
+            width: 25%;
+            max-width: 125px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .theme-bg {
+            width: 60%;
+            max-width: 45px;
+            height: 60%;
+            max-height: 20px;
+            background-color: rgba(35, 33, 33, 0.4);
+            border-radius: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 0 5px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .theme-bg:hover {
+            background-color: black;
+        }
+
+        .theme-ball {
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 100%;
+
+        }
+
+        .tdl-sub-menu {
+            /* border: 2px solid palevioletred; */
+            width: 100%;
+            min-height: 30px;
+            height: 100%;
+            max-height: 50px;
+            display: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tdl-v-bg {
+            width: 100%;
+            height: 100%;
+            /* border: 2px solid red; */
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+
+        .list-cont {
+            max-width: 900px;
+            width: 90%;
+            /* border: 2px solid white; */
+        }
+
+        .list-cont li {
+            width: 100%;
+            min-height: 40px;
+            height: 20%;
+            border: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-weight: lighter;
+            background-color:  rgb(15, 15, 15);
+            cursor: default;
+            color: white;
+            text-transform: capitalize;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            text-align: justify;
+        }
+
+        .list-cont li:hover {
+            background-color: rgba(20, 20, 20, 0.8);
+        }
+
+        .p-view-cont {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 10, 0.2);
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            animation: pview 500ms ease-in-out 0ms 1 alternate;
+        }
+
+        @keyframes pview {
+            from {width: 0px; height: 0px;}
+
+            to {width: 100%; height: 100%;}
+        }
+
+        .p-view {
+            border: 1px solid white;
+            width: 70%;
+            max-width: 700px;
+            height: 70%;
+            max-height: 800px;
+            background-color: black;
+            background-image: url(contact.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            display: flex;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 10px;
+            transform: translateY(0%);
+        }
+
+        .close-p-view {
+            /* background-color: aqua; */
+            width: 100%;
+            height: 50px;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            padding: 5px;
+            justify-content: flex-end;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .p-cont-2 {
+            display: none;
+        }
+
+        .close-icon {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .p-view-cont:hover .close-icon {
+            display: block;
+        }
+
+
+        .clear-cont {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+            /* border: 2px solid gold; */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .clear-btn {
+            background-color: rgba(10, 10, 10, 0.8);
+            color: white;
+            border: none;
+            outline: none;
+            height: 35px;
+            width: 100px;
+            font-size: 18px;
+            padding: 4px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+        }
+
+        .clear-btn:hover {
+            background-color: rgba(10, 10, 10, 1.0);
+        }
+        
+        .tdl-v-footer {
+            width: 100%;
+            height: 30%;
+            max-height: 50px;
+            /* border: 2px solid blue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                height: 30px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .section-1 {
+                margin: 20px 0;
+            }
+
+            .tdl-cont {
+                width: 95%;
+            }
+
+            .tdl-menu {
+                display: none;
+            }
+
+            .tdl-v-cont-2 {
+                min-height: 110px;
+            }
+
+            .tdl-v-header {
+                padding: 3px 10px;
+                min-height: 40px;
+            }
+            
+            .p-menu-cont {
+                display: flex;
+                justify-content: center;
+            }
+
+            .p-menu {
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-cont {
+                display: flex;
+            }
+
+            .tdl-sub-menu {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 95%;
+            }
+
+            .tdl-sub-menu div {
+                /* border: 2px solid white; */
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                box-sizing: border-box;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            .p-view-cont {
+                animation: pview2 500ms ease 0ms 1 alternate;
+            }
+
+            @keyframes pview2 {
+                from {opacity: 0;}
+
+                to {opacity: 1.0;}
+            }
+
+            .p-view {
+                background-image: none;
+                max-width: 600px;
+                max-height: 500px;
+                border-radius: 10px;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-between;
+                box-sizing: border-box;
+                overflow: hidden;
+                padding: 10px;
+            }
+
+            .close-p-view {
+                min-height: 30px;
+            }
+
+            .p-cont-2 {
+                display: flex;
+                min-height: 80%;
+                width: 100%;
+                /* border: 2px solid blue; */
+                box-sizing: border-box;
+                overflow: visible;
+                flex-direction: column;
+            }
+
+            .pp-cont-2 {
+                width: 170px;
+                height: 170px;
+            }
+
+            .pd-cont-2 {
+                /* border: 2px solid brown; */
+                box-sizing: border-box;
+                max-height: 40%;
+            }
+
+            .clear-btn {
+                width: 100px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+        }
+
+        @media (max-width: 699px) {
+            header {
+                font-size: 1.3em;
+                height: 50px;
+            }
+
+            .tdl-v-cont-2 {
+                min-height: 90px;
+            }
+
+            .tdl-v-cont {
+                padding-bottom: 10px;
+            }
+
+            .tdl-v-header {
+                font-size: 1.5em;
+                min-height: 50px;
+                margin: 7px;
+            }
+
+            .p-menu {
+                width: 35px;
+                height: 35px;
+            }
+
+            .theme-ball {
+                height: 12px;
+                width: 12px;
+            }
+
+            .tdl-v-bg li {
+                min-height: 35px;
+            }
+
+            .p-view {
+                padding: 5px 10px;
+            }
+
+            .close-p-view {
+                height: 30px;
+                /* background-color: red; */
+            }
+
+            .close-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .clear-btn {
+                width: 80px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .tdl-v-footer {
+                padding-bottom: 5px;
+            }
+
+            .tdl-sub-menu {
+                min-height: 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .p-view-cont {
+                align-items: flex-end;
+            }
+
+            .p-view {
+                width: 100%;
+                max-height: 50%;
+                border-radius: 30px 30px 0 0;
+                padding: 10px;
+                border-bottom: none;
+                transform: translateY(10px);
+            }
+
+            .close-p-view {
+                height: 40px;
+            }
+
+            .close-icon {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .pp-cont-2 {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+
+        @media (max-width: 350px) {
+            header {
+                font-size: 1em;
+                height: 35px;
+            }
+
+            .section-1 {
+                margin: 20px 0;
+            }
+
+            .tdl-cont {
+                width: 95%;
+            }
+
+            .tdl-v-cont-2 {
+                min-height: 85px;
+            }
+
+            .tdl-v-header {
+                font-size: 1.2em;
+                min-height: 40px;
+                align-items: center;
+                margin: 8px;
+            }
+
+            .p-menu {
+                width: 30px;
+                height: 30px;
+            }
+
+            .title-cont {
+                padding-left: 0;
+            }
+
+            .p-menu-cont {
+                max-width: 50px;
+                justify-content: center;
+            }
+
+            .theme-bg {
+                min-width: 30px;
+            }
+
+            .theme-ball {
+                height: 10px;
+                width: 10px;
+            }
+
+            .tdl-v-bg li {
+                min-height: 30px;
+            }
+
+            .p-view {
+                border-radius: 25px 25px 0 0;
+            }
+
+            .close-p-view {
+                height: 30px;
+            }
+
+            .close-icon {
+                width: 15px;
+                height: 15px;
+            }
+
+            .clear-btn {
+                width: 60px;
+                height: 25px;
+                font-size: 13px;
+            }
+
+            .tdl-v-footer {
+                padding-bottom: 0;
+            }
+
+            .tdl-sub-menu {
+                min-height: 20px;
+                font-size: 0.7em;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .p-cont-2 {
+                flex-direction: row;
+            }
+
+            .close-p-view {
+                height: 30px;
+                /* background-color: red; */
+            }
+
+            .close-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .pp-cont {
+                width: 100px;
+                height: 100px;
+            }
+
+            .pd-cont-2 {
+                min-height: 80%;
+            }
+        }
+
+        .td-input-cont {
+            width: 95%;
+            max-width: 800px;
+            height: 80%;
+            max-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            background-color: white;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding: 0 0;
+            color: gray;
+        }
+
+        .td-input {
+            border: 0;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0 30px;
+            overflow: hidden;
+            color: black;
+            background-color: inherit;
+            font-size: 19px;
+            font-weight: lighter;
+
+        }
+
+        @media (max-width: 699px) {
+            .td-input {
+                font-size: 17.5px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .td-input-cont {
+                max-height: 35px;
+            }
+
+            .td-input {
+                font-size: 15px;
+            }
+        }
+
+        .td-btn {
+            border: 0;
+            outline: none;
+            height: 100%;
+            width: 30%;
+            max-width: 100px;
+            font-weight: bolder;
+            color: inherit;
+            background-color: inherit;
+            font-size: 25px;
+            font-weight: lighter;
+            cursor: pointer;
+        }
+
+        .td-btn:hover {
+            color: royalblue;
+            /* background-color: gray; */
+        }
+
+       .planned {
+        display: block;
+       }
+
+       .important {
+        display: none;
+       }
+
+       .important li {
+        color: gold;
+       }
+
+       .completed {
+        display: none;
+        text-decoration: line-through;
+        color: gray;
+       }
+
+       .completed li {
+        color: gray;
+       }
+
+
+       li .check-bx {
+        width: 40px;
+       }
+
+
+       .listitem-bg {
+        /* background-color: palevioletred; */
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0 5px;
+       }
+
+       li .imptbtn {
+        width: 50px;
+        height: 20px;
+        background-image: url(star.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin: 0 5px;
+
+       }
+
+
+       li .delete {
+        width: 50px;
+        height: 20px;
+        background-image: url(delete-2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
+        color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+       }
+
+       li .delete {
+        color: red;
+       }
+
+       .completed .imptbtn {
+        display: none;
+       }
+
+       .noty {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        display: none;
+       }
+    
+    </style>
+</head>
+<body id="body">
+
+    <header>
+        <div title="visit developer website">
+            <a href="https://olumidemichaelojo.netlify.app/">Developed by just_midemichael &trade;</a>
+        </div>
+    </header>
+
+    <section class="section-1">
+        <div class="tdl-cont">
+            <div class="tdl-menu">
+                <div class="p-cont" id="p-cont">  
+                    <div class="pp-cont" onclick="pView()"></div>
+                    <div class="pd-cont">
+                        <div class="email" id="email">
+                            jmm@gmail.com
+                            <button class="so-btn" id="so-btn" type="submit">sign-out</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="menu-cont" id="menu-cont">
+                    <div class="menu-bg" onclick ="planneD()" id="plannedmenu1" style="background-color: royalblue;"> Planned  &nbsp; <span class="noty" id="p-noty1"></span> </div>
+                    <div class="menu-bg" onclick="importanT()" id="importantmenu1"> Important &nbsp; <span class="noty" id="i-noty1" style="background-color: gold;"></span> </div>
+                    <div class="menu-bg" onclick ="completeD()" id="completedmenu1"> Completed &nbsp; <span class="noty" id="c-noty1" style="background-color: green;"></span> </div>
+
+                    <div class="theme-cont1">
+                        <div class="theme-bg1" id="theme-bg1" onclick="themeChange()">
+                            <div class="theme-ball1" id="theme-ball1"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="tdl-v-cont" id="tdl-v-cont">
+                <div class="tdl-v-cont-2">
+                    <div class="tdl-v-header">
+                        <div class="p-menu-cont">
+                            <div class="p-menu" id="p-menu"></div>
+                        </div>
+                        <div class="title-cont" id="title-cont">JMM TODOS</div>
+                        <div class="theme-cont" onclick="themeChange()">
+                            <div class="theme-bg" id="theme-bg">
+                                <div class="theme-ball" id="theme-ball"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tdl-sub-menu">
+                        <div onclick ="planneD()" id="plannedmenu" style="background-color: rgba(10, 10, 10, 0.8);"> <span class="noty" id="p-noty2"></span> &nbsp; Planned</div>
+                        <div onclick="importanT()" id="importantmenu"> <span class="noty" id="i-noty2" style="background-color: gold;"></span> &nbsp; Important</div>
+                        <div onclick ="completeD()" id="completedmenu"><span class="noty" id="c-noty2" style="background-color: green;"></span> &nbsp; Completed</div>
+                    </div>
+                </div>
+                
+                <div class="tdl-v-bg">
+                    <div class="list-cont">
+                        <ul class="planned" id="planned"></ul>
+                        <ul class="important" id="important"></ul>
+                        <ul class="completed" id="completed"></ul>
+                    </div>
+                </div>
+
+                <div class="p-view-cont" id="p-view-cont">
+                    <div class="p-view" id="p-view">
+                        <div class="close-p-view">
+                            <img class="close-icon" id="close-icon" src="cancel.png" alt="close"/>
+                        </div>
+                        <div class="p-cont p-cont-2" id="p-cont">  
+                            <div class="pp-cont pp-cont-2"></div>
+                            <div class="pd-cont pd-cont-2">
+                                <div class="email" id="email">
+                                    jmm@gmail.com
+                                    <button class="so-btn" id="so-btn-2" type="submit">sign-out</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear-cont" id="clear-cont">
+                    <button class="clear-btn" id="clear-btn" type="submit">clear </button>
+                </div>
+                <div class="tdl-v-footer" id="tdl-v-footer">
+                    <div class="td-input-cont" id="td-input-cont">
+                        <input class="td-input" id="td-input" type="text" name="td-input" placeholder="Add to List" value="" oninput ="tdBtn()" required/>
+                        <button class="td-btn" id="td-btn" type="submit">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // planned =  document.getElementById("planned");
+        // plannedmenu = document.getElementById("plannedmenu");
+        // plannedmenu1 = document.getElementById("plannedmenu1");
+        // important =  document.getElementById("important");
+        // importantmenu = document.getElementById("importantmenu");
+        // importantmenu1 = document.getElementById("importantmenu1");
+        // completed =  document.getElementById("completed");
+        // completedmenu = document.getElementById("completedmenu");
+        // completedmenu1 = document.getElementById("completedmenu1");
+        taskInput = document.getElementById("td-input");
+        tdvalue = document.getElementById("td-input").value;
+        addButton = document.getElementById("td-btn");
+        plannedTasks = document.getElementById("planned");
+        importantTasks = document.getElementById("important");
+        completedTasks = document.getElementById("completed");
+        clearBtn = document.getElementById("clear-btn");
+        listItem = document.createElement("li");
+
+        
+        function pView() {
+            document.getElementById("p-view-cont").style.display = "flex";
+        }
+
+        function pviewClose() {
+            if (document.getElementById("close-icon").style.display !== "none") {
+                document.getElementById("p-view-cont").style.display = "none";
+            }else {
+                false;
+            }
+        }
+
+        profileOpen = document.getElementById("p-menu");
+        profileOpen.addEventListener("click", pView)
+
+        profileClose = document.getElementById("close-icon");
+        profileClose.addEventListener("click", pviewClose)
+
+        function soResponse() {
+            alert("Please note that Back-end have not been added \nMeaning, you cant sign-out/sign-in")
+        }
+
+        soBtn = document.getElementById("so-btn");
+        soBtn2 = document.getElementById("so-btn-2");
+        
+        soBtn.addEventListener("click", soResponse);
+        soBtn2.addEventListener("click", soResponse);
+
+
+        // Sub Menu Interaction Starts here
+        function planneD() {
+            planned.style.display = "block";
+            plannedmenu.style.backgroundColor = "rgba(10, 10, 10, 0.8)";
+            plannedmenu1.style.backgroundColor = "royalblue";
+            important.style.display = "none";
+            importantmenu.style.backgroundColor = "transparent";
+            importantmenu1.style.backgroundColor = "transparent";
+            completed.style.display = "none";
+            completedmenu.style.backgroundColor = "transparent";
+            completedmenu1.style.backgroundColor = "transparent";
+            document.getElementById("clear-cont").style.display = "none";
+            document.getElementById("tdl-v-footer").style.display = "flex";
+        }
+
+        function importanT() {
+            important.style.display = "block";
+            importantmenu.style.backgroundColor = "rgba(10, 10, 10, 0.8)";
+            importantmenu1.style.backgroundColor = "royalblue";
+            planned.style.display = "none";
+            plannedmenu.style.backgroundColor = "transparent";
+            plannedmenu1.style.backgroundColor = "transparent";
+            completed.style.display = "none";
+            completedmenu.style.backgroundColor = "transparent";
+            completedmenu1.style.backgroundColor = "transparent";
+            document.getElementById("clear-cont").style.display = "none";
+            document.getElementById("tdl-v-footer").style.display = "none";
+        }
+
+        function completeD() {
+            completed.style.display = "block";
+            completedmenu.style.backgroundColor = "rgba(10, 10, 10, 0.8)";
+            completedmenu1.style.backgroundColor = "royalblue";
+            planned.style.display = "none";
+            plannedmenu.style.backgroundColor = "transparent";
+            plannedmenu1.style.backgroundColor = "transparent";
+            important.style.display = "none";
+            importantmenu.style.backgroundColor = "transparent";
+            importantmenu1.style.backgroundColor = "transparent";
+            document.getElementById("clear-cont").style.display = "flex";
+            document.getElementById("tdl-v-footer").style.display = "none";
+
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+            }else {
+                document.getElementById("clear-cont").style.display = "flex";
+            }
+        }
+        // Sub Menu Interaction Ends here
+
+
+        
+        // // this is themes script
+        function themeChange() {
+            themebg = document.getElementById("theme-bg");
+            themeball = document.getElementById("theme-ball");
+            themebg1 = document.getElementById("theme-bg1");
+            themeball1 = document.getElementById("theme-ball1");
+
+            if (themebg.style.justifyContent == "flex-end") {
+                themebg.style.justifyContent = "flex-start";
+                themeball.style.backgroundColor = "white";
+                themebg1.style.justifyContent = "flex-start";
+                themeball1.style.backgroundColor = "white";
+                document.getElementById("body").style.backgroundImage = "url(bg-3.jpg)";
+                document.getElementById("body").style.color = "black";
+                document.getElementById("tdl-v-cont").style.backgroundImage = "url(bg-6.jpg)";
+                document.getElementById("td-input-cont").style.backgroundColor = "white";
+                document.getElementById("td-input").style.color = "black";
+            }else {
+                themebg.style.justifyContent = "flex-end";
+                themeball.style.backgroundColor = "royalblue";
+                themebg1.style.justifyContent = "flex-end";
+                themeball1.style.backgroundColor = "royalblue";
+                document.getElementById("body").style.backgroundImage = "url(bg-1.jpg)";
+                document.getElementById("body").style.color = "white";
+                document.getElementById("tdl-v-cont").style.backgroundImage = "url(bg-7.jfif)";
+                document.getElementById("td-input-cont").style.backgroundColor = "rgba(15, 15, 15, 0.9)";
+                document.getElementById("td-input").style.color = "white";
+            }
+        } //theme script Ends here
+       
+
+
+
+
+        // Add New task to the List Start here
+
+            taskInput = document.getElementById("td-input");
+            tdvalue = document.getElementById("td-input").value;
+            addButton = document.getElementById("td-btn");
+            plannedTasks = document.getElementById("planned");
+            importantTasks = document.getElementById("important");
+            completedTasks = document.getElementById("completed");
+            clearBtn = document.getElementById("clear-btn");
+            listItem = document.createElement("li");
+
+        newList = function() {
+            listItem = document.createElement("li");
+            listCheckBox = document.createElement("input");
+            listImportantBtn = document.createElement("button");
+            listDeleteBtn = document.createElement("button");
+            span = document.createElement("dil");
+            txt = document.createTextNode("\u00D7");
+
+            listCheckBox.type = "checkbox";
+            t = document.createTextNode(tdvalue);
+            span.className = "listitem-bg";
+            span.appendChild(t);
+
+
+            listCheckBox.className = "check-bx";
+            listImportantBtn.className = "imptbtn";
+            listDeleteBtn.className = "delete";
+            listDeleteBtn.appendChild(txt);
+  
+            listItem.appendChild(listCheckBox);
+            listItem.appendChild(span);
+            listItem.appendChild(listImportantBtn)
+            listItem.appendChild(listDeleteBtn);
+            return listItem;
+        }
+
+        addList = function() {
+            if (tdvalue == "" || tdvalue == " " || tdvalue == "  " || tdvalue == "   " || tdvalue == "    ") {
+                alert("list name can't be empty");
+                taskInput.value = "";
+                document.getElementById("td-btn").style.backgroundColor = "transparent";
+                document.getElementById("td-btn").style.color = "grey";
+                taskInput.focus();
+
+            }else {
+                listItem = newList();
+                plannedTasks.appendChild(listItem);
+                bindTaskEvents(listItem, taskCompleted);
+
+                taskInput.value = "";
+                document.getElementById("td-btn").style.backgroundColor = "transparent";
+                document.getElementById("td-btn").style.color = "grey";
+                taskInput.focus();
+
+                // noty 1
+                if (plannedTasks.innerHTML == "" ) {  
+                    document.getElementById("p-noty1").style.display = "none";
+                }else {
+                    document.getElementById("p-noty1").style.display = "block";
+                };
+
+                if (importantTasks.innerHTML == "" ) {
+                    document.getElementById("i-noty1").style.display = "none";
+                }else {
+                    document.getElementById("i-noty1").style.display = "block";
+                };
+                
+                if (completedTasks.innerHTML == "" ) {
+                    document.getElementById("c-noty1").style.display = "none";
+                }else {
+                    document.getElementById("c-noty1").style.display = "block";
+                };
+
+                // noty 2
+                if (plannedTasks.innerHTML == "" ) {  
+                    document.getElementById("p-noty2").style.display = "none";
+                }else {
+                    document.getElementById("p-noty2").style.display = "block";
+                };
+
+                if (importantTasks.innerHTML == "" ) {
+                    document.getElementById("i-noty2").style.display = "none";
+                }else {
+                    document.getElementById("i-noty2").style.display = "block";
+                };
+                
+                if (completedTasks.innerHTML == "" ) {
+                    document.getElementById("c-noty2").style.display = "none";
+                }else {
+                    document.getElementById("c-noty2").style.display = "block";
+                };    
+            }
+
+        }
+        
+
+        markImportant = function() {
+            x = plannedTasks;
+            plannedTasks = document.getElementById("planned");
+            importantTasks = document.getElementById("important")
+            if (plannedTasks.style.display !== "none") {
+                x = confirm("Make this task Important!");
+                if (x == true) {
+                    listItem = this.parentNode;
+                    ul = listItem.parentNode;
+                    importantTasks.appendChild(listItem);
+
+                    // noty 1
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty1").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty1").style.display = "block";
+                    };
+
+                    // noty 2
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty2").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty2").style.display = "block";
+                    };               
+                }else {
+                    false;
+                };
+            }else if (plannedTasks.style.display == "none")  {
+                x = confirm("Make this task not Important!");
+                if (x == true) {
+                    listItem = this.parentNode;
+                    ul = listItem.parentNode;
+                    plannedTasks.appendChild(listItem);
+
+                    // noty 1
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty1").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty1").style.display = "block";
+                    };
+
+                    // noty 2
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty2").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty2").style.display = "block";
+                    };
+                }else {
+                    false;
+                };
+            }
+            return markImportant;
+
+        }
+        
+
+        deleteTask = function() {
+            x = confirm("Do you want to delete this task?");
+            document.getElementById("clear-cont").style.display = "none";
+                if (x == true) {
+                    listItem = this.parentNode;
+                    ul = listItem.parentNode;
+                    ul.removeChild(listItem);
+                }else {
+                    false;
+                }
+
+            // noty 1
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty1").style.display = "none";
+            }else {
+                document.getElementById("p-noty1").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty1").style.display = "none";
+            }else {
+                document.getElementById("i-noty1").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty1").style.display = "none";
+            }else {
+                document.getElementById("c-noty1").style.display = "block";
+            };
+
+            // noty 2
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty2").style.display = "none";
+            }else {
+                document.getElementById("p-noty2").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty2").style.display = "none";
+            }else {
+                document.getElementById("i-noty2").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty2").style.display = "none";
+            }else {
+                document.getElementById("c-noty2").style.display = "block";
+            };   
+        }
+
+        taskCompleted = function() {
+            listItem = this.parentNode;
+            completedTasks.appendChild(listItem);
+            bindTaskEvents(listItem, taskIncomplete);
+
+            // noty 1
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty1").style.display = "none";
+            }else {
+                document.getElementById("p-noty1").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty1").style.display = "none";
+            }else {
+                document.getElementById("i-noty1").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("c-noty1").style.display = "none";
+            }else {
+                document.getElementById("c-noty1").style.display = "block";
+            };
+
+            // noty 2
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty2").style.display = "none";
+            }else {
+                document.getElementById("p-noty2").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty2").style.display = "none";
+            }else {
+                document.getElementById("i-noty2").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("c-noty2").style.display = "none";
+            }else {
+                document.getElementById("c-noty2").style.display = "block";
+            };  
+        }
+
+
+        taskIncomplete = function() {
+            listItem = this.parentNode;
+            plannedTasks.appendChild(listItem);
+            bindTaskEvents(listItem, taskCompleted);
+
+            // noty 1
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty1").style.display = "none";
+            }else {
+                document.getElementById("p-noty1").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty1").style.display = "none";
+            }else {
+                document.getElementById("i-noty1").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty1").style.display = "none";
+            }else {
+                document.getElementById("c-noty1").style.display = "block";
+            };
+
+            // noty 2
+            if (plannedTasks.innerHTML == "" ) {  
+                document.getElementById("p-noty2").style.display = "none";
+            }else {
+                document.getElementById("p-noty2").style.display = "block";
+            };
+
+            if (importantTasks.innerHTML == "" ) {
+                document.getElementById("i-noty2").style.display = "none";
+            }else {
+                document.getElementById("i-noty2").style.display = "block";
+            };
+            
+            if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty2").style.display = "none";
+            }else {
+                document.getElementById("c-noty2").style.display = "block";
+            };  
+        }
+
+        var ajaxRequest = function() {
+            console.log("AJAX Request");
+        }
+
+        addButton.addEventListener("click", addList);
+        addButton.addEventListener("click",ajaxRequest);
+
+        bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
+            listCheckBox = taskListItem.querySelector('input[type="checkbox"]');
+            listCheckBox.className = "check-bx";
+            listImportantBtn = taskListItem.querySelector("button.imptbtn");
+            listImportantBtn.onclick = markImportant;
+            listDeleteBtn = taskListItem.querySelector("button.delete");
+            listDeleteBtn.onclick = deleteTask;
+            
+            listCheckBox.onchange = checkBoxEventHandler;
+        }
+
+        for (i = 0; i < planned.children.length; i++) {
+            bindTaskEvents(completedTasks.children[i], taskIncomplete)
+        }// Adding New Tast Ends here
+
+        clearTask = function() {
+            x = confirm("Clear all completed task")
+            if (x == true) {
+                completedTasks.innerHTML = "";
+
+                // noty 1
+                if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty1").style.display = "none";
+                }else {
+                    document.getElementById("c-noty1").style.display = "block";
+                };
+
+                // noty 2
+                if (completedTasks.innerHTML == "" ) {
+                document.getElementById("clear-cont").style.display = "none";
+                document.getElementById("c-noty2").style.display = "none";
+                }else {
+                    document.getElementById("c-noty2").style.display = "block";
+                };
+            } else {
+                false;   
+            }
+        }
+
+        clearBtn.addEventListener("click", clearTask)
+
+
+        // To-do-List input button interaction Starts here
+        function tdBtn() {
+            tdvalue = document.getElementById("td-input").value;
+                document.getElementById("td-btn").style.backgroundColor = "royalblue";
+                document.getElementById("td-btn").style.color = "white";
+
+                if (tdvalue == "") {
+                    document.getElementById("td-btn").style.backgroundColor = "transparent";
+                document.getElementById("td-btn").style.color = "grey";
+                }
+        } // To-do-List input button interaction Ends here
+    </script>
+</body>   
+</html>
