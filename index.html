@@ -866,8 +866,8 @@
         .td-input-cont {
             width: 95%;
             max-width: 800px;
-            max-height: 35px;
-            min-height: 35px;
+            height: 80%;
+            max-height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -891,6 +891,12 @@
             font-size: 19px;
             font-weight: lighter;
 
+        }
+
+        @media (max-width: 1000px) {
+            .td-input-cont {
+                min-height: 35px;
+            }
         }
 
         @media (max-width: 699px) {
