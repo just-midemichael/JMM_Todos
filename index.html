@@ -1430,49 +1430,49 @@
                     // sound
                     document.getElementById("deleted-sound").load();
                     document.getElementById("deleted-sound").play();
+                    
+                    // noty 1
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty1").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty1").style.display = "block";
+                    };
+                    
+                    if (completedTasks.innerHTML == "" ) {
+                        document.getElementById("clear-cont").style.display = "none";
+                        document.getElementById("c-noty1").style.display = "none";
+                    }else {
+                        document.getElementById("c-noty1").style.display = "block";
+                    };
+
+                    // noty 2
+                    if (plannedTasks.innerHTML == "" ) {  
+                        document.getElementById("p-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("p-noty2").style.display = "block";
+                    };
+
+                    if (importantTasks.innerHTML == "" ) {
+                        document.getElementById("i-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("i-noty2").style.display = "block";
+                    };
+                    
+                    if (completedTasks.innerHTML == "" ) {
+                        document.getElementById("clear-cont").style.display = "none";
+                        document.getElementById("c-noty2").style.display = "none";
+                    }else {
+                        document.getElementById("c-noty2").style.display = "block";
+                    };  
                 }else {
                     false;
-                }
-
-            // noty 1
-            if (plannedTasks.innerHTML == "" ) {  
-                document.getElementById("p-noty1").style.display = "none";
-            }else {
-                document.getElementById("p-noty1").style.display = "block";
-            };
-
-            if (importantTasks.innerHTML == "" ) {
-                document.getElementById("i-noty1").style.display = "none";
-            }else {
-                document.getElementById("i-noty1").style.display = "block";
-            };
-            
-            if (completedTasks.innerHTML == "" ) {
-                document.getElementById("clear-cont").style.display = "none";
-                document.getElementById("c-noty1").style.display = "none";
-            }else {
-                document.getElementById("c-noty1").style.display = "block";
-            };
-
-            // noty 2
-            if (plannedTasks.innerHTML == "" ) {  
-                document.getElementById("p-noty2").style.display = "none";
-            }else {
-                document.getElementById("p-noty2").style.display = "block";
-            };
-
-            if (importantTasks.innerHTML == "" ) {
-                document.getElementById("i-noty2").style.display = "none";
-            }else {
-                document.getElementById("i-noty2").style.display = "block";
-            };
-            
-            if (completedTasks.innerHTML == "" ) {
-                document.getElementById("clear-cont").style.display = "none";
-                document.getElementById("c-noty2").style.display = "none";
-            }else {
-                document.getElementById("c-noty2").style.display = "block";
-            };   
+                } 
         }
 
         taskCompleted = function() {
