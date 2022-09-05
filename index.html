@@ -991,6 +991,10 @@
         margin: 0;
         display: none;
        }
+
+       .sound {
+        display: none;
+       }
     
     </style>
 </head>
@@ -1084,7 +1088,11 @@
                 </div>
             </div>
         </div>
-
+        <audio class="sound" id="added-sound" src="added.mp3" controls></audio>
+        <audio class="sound" id="deleted-sound" src="deleted.wav" controls></audio>
+        <audio class="sound" id="cleared-sound" src="cleared.wav" controls></audio>
+        <audio class="sound" id="important-sound" src="important.wav" controls></audio>
+        <audio class="sound" id="completed-sound" src="completed.wav" controls></audio>
     </section>
 
     <script>
@@ -1277,6 +1285,10 @@
                 document.getElementById("td-btn").style.color = "grey";
                 taskInput.focus();
 
+                // sound
+                document.getElementById("added-sound").load(); 
+                document.getElementById("added-sound").play();
+
                 // noty 1
                 if (plannedTasks.innerHTML == "" ) {  
                     document.getElementById("p-noty1").style.display = "none";
@@ -1330,6 +1342,10 @@
                     ul = listItem.parentNode;
                     importantTasks.appendChild(listItem);
 
+                    // sound
+                    document.getElementById("important-sound").load();
+                    document.getElementById("important-sound").play();
+
                     // noty 1
                     if (plannedTasks.innerHTML == "" ) {  
                         document.getElementById("p-noty1").style.display = "none";
@@ -1364,6 +1380,10 @@
                     listItem = this.parentNode;
                     ul = listItem.parentNode;
                     plannedTasks.appendChild(listItem);
+
+                    // sound
+                    document.getElementById("added-sound").load(); 
+                    document.getElementById("added-sound").play();
 
                     // noty 1
                     if (plannedTasks.innerHTML == "" ) {  
@@ -1406,6 +1426,10 @@
                     listItem = this.parentNode;
                     ul = listItem.parentNode;
                     ul.removeChild(listItem);
+
+                    // sound
+                    document.getElementById("deleted-sound").load();
+                    document.getElementById("deleted-sound").play();
                 }else {
                     false;
                 }
@@ -1456,6 +1480,10 @@
             completedTasks.appendChild(listItem);
             bindTaskEvents(listItem, taskIncomplete);
 
+            // sound
+            document.getElementById("completed-sound").load();
+            document.getElementById("completed-sound").play();
+
             // noty 1
             if (plannedTasks.innerHTML == "" ) {  
                 document.getElementById("p-noty1").style.display = "none";
@@ -1500,6 +1528,10 @@
             listItem = this.parentNode;
             plannedTasks.appendChild(listItem);
             bindTaskEvents(listItem, taskCompleted);
+
+            // sound
+            document.getElementById("added-sound").load();
+            document.getElementById("added-sound").play();
 
             // noty 1
             if (plannedTasks.innerHTML == "" ) {  
@@ -1568,6 +1600,9 @@
             x = confirm("Clear all completed task")
             if (x == true) {
                 completedTasks.innerHTML = "";
+
+                // sound
+                document.getElementById("cleared-sound").play();
 
                 // noty 1
                 if (completedTasks.innerHTML == "" ) {
